@@ -1,0 +1,45 @@
+
+OS specific commands:
+
+set - Path check
+ver - OS version
+systeminfo - OS information
+cls - prompt clear
+chkdsk - checks the file system and disk volumes for errors and bad sectors
+driverquery - list of installed device drivers
+sfc /scannow - scan system files for corruption / repair them
+shutdown - power management
+
+Network specific commands:
+
+ipconfig - network information
+ipconfig /all - describes all network interfaces
+ping - pong
+tracert - tracing network routes
+nslookup - checks if domain or host returns an IP address
+netstat - current network connections and listening ports
+	-a displays all established connections and listening ports
+	-b shows the program associated with each listening port and established connection
+	-o reveals the process ID (PID) associated with the connection
+	-n uses a numerical form for addresses and port numbers
+
+File and Disk Management:
+
+cd - traverse directiories
+dir - list files
+	/a - display hidden files
+	/s - display files in the current directory and all subdirectiories
+tree - tree subdirectiories
+mkdir - create directory
+rmdir - remove directory
+copy - copy files
+move - move files
+del / erase - delete files
+type - view text files
+more - view longer text files
+
+Task and Process Management:
+
+tasklist - list running processes
+	/FI "imagename eq sshd.exe" - search tasks where image name equals sshd.exe
+taskkill /PID <PID> - terminate task
