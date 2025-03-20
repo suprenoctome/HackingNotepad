@@ -1,0 +1,18 @@
+Cmdlets follow a consistent Verb-Noun naming convention. This structure makes it easy to understand what each cmdlet does. 
+The Verb describes the action, and the Noun specifies the object on which action is performed. For example:
+
+Get-Content: Retrieves (gets) the content of a file and displays it in the console.
+Set-Location: Changes (sets) the current working directory.
+
+
+Basic Cmdlets:
+
+Get-Command - List all cmdlets
+	-CommandType "Function" - List all cmdlets of type Function
+	-Name "pattern*" - Finds cmdlet using name pattern
+Get-Help - Provides details about cmdlets
+	-examples - Provides examples of cmdlet use
+Get-Alias - Lists all aliases
+Find-Module -Name "PowerShell*" - Search for a module across online repositories
+Install-Module -Name "PowerShellGet" - Installs a module
+
