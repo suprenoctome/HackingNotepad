@@ -5,7 +5,7 @@ Get-Content: Retrieves (gets) the content of a file and displays it in the conso
 Set-Location: Changes (sets) the current working directory.
 
 
-Basic Cmdlets:
+1. Basic Cmdlets:
 
 Get-Command - List all cmdlets
 	-CommandType "Function" - List all cmdlets of type Function
@@ -16,3 +16,56 @@ Get-Alias - Lists all aliases
 Find-Module -Name "PowerShell*" - Search for a module across online repositories
 Install-Module -Name "PowerShellGet" - Installs a module
 
+2. Filesystem Cmdlets:
+
+Get-ChildItem
+Set-Location -Path ".\Documents"
+New-Item -Path ".\captain-cabin\captain-wardrobe" -ItemType "Directory"
+Remove-Item -Path ".\captain-cabin\captain-wardrobe"
+Copy-Item -Path .\captain-cabin\captain-hat.txt -Destination .\captain-cabin\captain-hat2.txt
+Get-Content -Path ".\captain-hat.txt"
+
+3. Piping, Filtering, Sorting Data:
+
+Select-String -Path ".\captain-hat.txt" -Pattern "hat"
+Get-ChildItem | Sort-Object Length
+Get-ChildItem | Where-Object -Property "Extension" -eq ".txt"
+	-eq: "equal to"
+	-ne: "not equal"
+	-gt: "greater than"
+	-ge: "greater than or equal to"
+	-lt: "less than"
+	-le: "less than or equal to"
+Get-ChildItem | Where-Object -Property "Name" -like "ship*"
+Get-ChildItem | Select-Object Name,Length 
+
+Name              Length
+----              ------
+captain-wardrobe
+captain-boots.txt 0
+captain-hat.txt   264
+captain-hat2.txt  264
+ship-flag.txt     2116
+
+4. System and Network information
+
+Get-ComputerInfo - Basic system informations
+Get-LocalUser - List all local user accounts
+Get-NetIPConfiguration - Basic network interfaces informations
+Get-NetIPAddress - Details about network
+Get-Process - List all processes
+Get-Service - List all services
+Get-NetTCPConnection - List active network connections
+Get-FileHash -Path .\ship-flag.txt - Returns file hash
+
+5. Scripting
+
+Invoke-Command - Runs commands on local and remote computers.
+
+------------- Example 1: Run a script on a server -------------
+
+Invoke-Command -FilePath c:\scripts\test.ps1 -ComputerName Server01
+
+--------- Example 2: Run a command on a remote server ---------
+
+Invoke-Command -ComputerName Server01 -Credential Domain01\User01 -ScriptBlock { Get-Culture }
